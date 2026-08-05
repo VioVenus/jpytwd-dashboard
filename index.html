@@ -205,9 +205,11 @@ function render(){
   const S=D.series, vs=S.map(x=>x[1]), mn=Math.min(...vs), mx=Math.max(...vs), rg=(mx-mn)||1;
   const pts=vs.map((v,i)=>(i/(vs.length-1)*660+20).toFixed(1)+","+(125-(v-mn)/rg*100).toFixed(1)).join(" ");
 
-  const warn = (D.warnings&&D.warnings.length)
-    ? '<div class="banner"><b>⚠ 本次更新有 '+D.warnings.length+' 則警示</b><br>'+D.warnings.map(w=>"· "+w).join("<br>")+'</div>'
-    : '<div class="banner g"><b>✓ 所有資料源正常</b>　最後更新 '+D.generated_at+'（台北時間）。每日 09:30 自動更新，也可按上方按鈕手動重跑。</div>';
+  let wlist=[...new Set(D.warnings||[])];                          // 去除重複（例如 FRED 會出現兩次）
+  if(sb!=null) wlist=wlist.filter(w=>!w.includes('台銀牌告被擋'));  // 已手動存牌告 → 不再提醒被擋
+  const warn = wlist.length
+    ? '<div class="banner"><b>⚠ 本次更新有 '+wlist.length+' 則提醒</b><br>'+wlist.map(w=>"· "+w).join("<br>")+'</div>'
+    : '<div class="banner g"><b>✓ 所有資料源正常</b>　最後更新 '+D.generated_at+'（台北時間）。每日 09:30 自動更新。</div>';
 
   const batchRows=BATCH.map(b=>`<tr><td class="ctr"><b>${b.n}</b></td>
     <td class="v">${f(b.amt)} 円<br><span style="font-weight:400;font-size:12px;color:#7b8894" data-batch="${b.amt}">約 ${nt(b.amt*B.spot_sell)}</span></td>
