@@ -1,0 +1,394 @@
+<!DOCTYPE html><html lang="zh-TW"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>日圓換匯 決策儀表板</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;background:#eef1f4;color:#1a1a1a;font-size:15.5px;line-height:1.75;padding:12px}
+.wrap{max-width:1000px;margin:0 auto}
+header{background:linear-gradient(135deg,#0d2b45,#1a4266);color:#fff;padding:20px 22px;border-radius:12px 12px 0 0}
+h1{font-size:22px;margin-bottom:5px}.hm{font-size:12.5px;opacity:.78;line-height:1.7}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff;padding:7px 14px;border-radius:7px;font-size:13px;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block}
+.btn:hover{background:rgba(255,255,255,.26)}.btn:disabled{opacity:.5;cursor:default}
+.btn.p{background:#fff;color:#0d2b45;font-weight:700;border-color:#fff}
+sec{display:block;background:#fff;margin-bottom:10px;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(13,43,69,.08)}
+h2{font-size:15.5px;background:#0d2b45;color:#fff;padding:11px 16px}
+h2 em{font-style:normal;font-size:12px;opacity:.7;font-weight:400;display:block;margin-top:2px}
+.bd{padding:16px}p{margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td,th{padding:9px;border-bottom:1px solid #eef1f4;vertical-align:top}
+th{background:#f6f8fa;font-size:12px;color:#5a6b7a;text-align:left;font-weight:600}
+.v{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
+.ctr{text-align:center}
+.lamp{display:flex;gap:12px;align-items:center;background:#fff9ee;border:2px solid #d98800;border-radius:10px;padding:15px 18px;margin-bottom:14px}
+.lamp .dot{width:44px;height:44px;border-radius:50%;background:#f5a623;flex-shrink:0;box-shadow:0 0 0 6px #fdf0d8}
+.lamp .tx b{font-size:18px;color:#a06400;display:block}.lamp .tx span{font-size:14px;color:#7a5a20}
+.chk{border:2px solid #0d2b45;border-radius:10px;overflow:hidden;margin-bottom:14px}
+.chk .ch{background:#0d2b45;color:#fff;padding:9px 14px;font-size:14px;font-weight:600}
+.chk table td{padding:11px 12px;font-size:14.5px}
+.big{font-size:23px;font-weight:700;color:#0d2b45;font-variant-numeric:tabular-nums;line-height:1.3}
+.big.r{color:#c1272d}.big.g{color:#1b7a3d}
+.lk{color:#1a4266;font-size:12.5px;word-break:break-all}
+.act{background:#f2f6fa;border-left:4px solid #0d2b45;padding:9px 12px;font-size:13.5px;margin-top:7px;border-radius:0 5px 5px 0}
+input#bd{font-size:26px;font-weight:700;color:#0d2b45;width:150px;padding:5px 9px;border:2px solid #0d2b45;border-radius:7px;font-variant-numeric:tabular-nums;margin-top:3px}
+.spec{position:relative;height:74px;margin:26px 6px 10px}
+.spbar{position:absolute;top:30px;left:0;right:0;height:14px;border-radius:7px;background:linear-gradient(90deg,#2f9e5a,#f5c542,#d1495b)}
+.pin{position:absolute;top:0;transform:translateX(-50%);text-align:center;width:96px;margin-left:-48px}
+.pin i{display:block;width:2px;height:22px;background:#7b8894;margin:24px auto 0}
+.pin b{display:block;font-size:12px;color:#5a6b7a;font-variant-numeric:tabular-nums;margin-top:2px}
+.pin span{display:block;font-size:10.5px;color:#93a1ad;line-height:1.35}
+.pin.now i{height:30px;width:3px;background:#c1272d;margin-top:16px}.pin.now b{color:#c1272d;font-size:14px;font-weight:800}
+.chart{width:100%;height:145px}.cl{font-size:10px;fill:#93a1ad}
+.force{border:1px solid #e4e9ee;border-radius:9px;padding:12px 14px;margin-bottom:9px}
+.force .fh{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.force .fn{font-size:15px;font-weight:700;color:#0d2b45}
+.arrow{font-size:13px;padding:2px 11px;border-radius:12px;font-weight:700;white-space:nowrap}
+.a-up{background:#fadcdc;color:#b02a2a}.a-dn{background:#e3f3e8;color:#1b7a3d}.a-fl{background:#eef1f4;color:#5a6b7a}
+.force p{font-size:14px;margin-bottom:0;color:#3a4a58}
+details{margin-top:9px;border-top:1px dashed #dde3e8;padding-top:8px}
+summary{font-size:12.5px;color:#5a8fc4;cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}summary::before{content:"▸ "}details[open] summary::before{content:"▾ "}
+details table{margin-top:7px;font-size:12.5px}details td{padding:5px 7px}
+.evt td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600;font-size:13px}
+.evt tr.key td{background:#fdf4f4}.evt tr.key td:first-child{color:#c1272d}
+.evt tr.mine td{background:#f2f9f4}.evt tr.mine td:first-child{color:#1b7a3d}
+.tag{font-size:11px;padding:1px 7px;border-radius:9px;background:#eef1f4;color:#5a6b7a;white-space:nowrap}
+.tag.r{background:#fadcdc;color:#b02a2a}.tag.g{background:#e3f3e8;color:#1b7a3d}.tag.y{background:#fdf0d8;color:#a06400}
+.note{font-size:12.5px;color:#7b8894;line-height:1.7;margin-top:10px}
+.banner{background:#fff4e0;border-left:5px solid #d98800;padding:12px 16px;font-size:13px;line-height:1.7}
+.banner.g{background:#f2f9f4;border-left-color:#1b7a3d}
+footer{font-size:12px;color:#7b8894;padding:15px 16px;line-height:1.8;background:#fff;border-radius:0 0 10px 10px}
+.prog{height:26px;background:#eef1f4;border-radius:13px;overflow:hidden;display:flex;margin:8px 0 4px}
+.prog i{display:block;background:#1b7a3d}
+.hot{color:#b02a2a}
+#load{padding:60px 20px;text-align:center;color:#7b8894;background:#fff;border-radius:10px}
+@media(max-width:620px){body{padding:6px;font-size:15px}.bd{padding:13px}
+.pin{width:74px;margin-left:-37px}.pin b{font-size:11px}.pin span{font-size:9.5px}.hidem{display:none}}
+</style></head><body><div class="wrap">
+
+<header>
+<h1>日圓換匯 決策儀表板</h1>
+<div class="hm">目標：<span id="hneed">—</span> 日圓　｜　8 月底換 1/3、9 月換 2/3　｜　台幣直接買日圓（即期）<br>
+資料更新 <b id="hgen">—</b>　｜　錨點收盤 <b id="hanc">—</b>　｜　來源 <span id="hsrc">—</span></div>
+<div class="tools">
+<button class="btn p" id="brf" onclick="liveRefresh()">⟳ 更新即時匯率</button>
+<button class="btn" onclick="location.reload()">↻ 重新載入</button>
+<a class="btn" id="bact" href="#" target="_blank">▶ 重跑完整更新（GitHub Actions）</a>
+<a class="btn" href="https://rate.bot.com.tw/xrt?Lang=zh-TW" target="_blank">台銀牌告</a>
+</div>
+</header>
+
+<div id="load">載入資料中…</div>
+<div id="app" style="display:none"></div>
+
+<footer>
+<b>這份儀表板不預測匯率。</b>它只做三件事：告訴你現在的價格在什麼位置、正常情況下會晃多大、以及哪些日子和哪些數字該盯。
+不做「下週會漲會跌」的預測，是因為同一套方法在美元兌台幣上做過完整驗證：上線後兩週與四週的漲跌方向<b>猜中率是 0</b>，改版後的模型經過九年回測，準確率在統計上和擲硬幣沒有差別。日圓兌台幣的波動比美元兌台幣還大三成六，只會更難不會更容易。<br><br>
+<b>資料來源</b>：臺灣銀行牌告、Yahoo Finance（備援 frankfurter／open.er-api）、美國 FRED、日本財務省（公債利率／資金流向／貿易統計／介入實績）、日本銀行、日本 e-Stat、美國 CFTC。全部為免費公開來源，每日自動更新。<br><br>
+<b>免責聲明</b>：本頁為個人換匯規劃的輔助工具，<b>不是投資建議</b>。行情情境引用《美日干預日圓深度分析 2026-08-03》後機械換算，計算時把美元兌台幣固定在單一水準，未計入台幣本身的波動（台幣兩個月的正常波動就可能達 ±2.2%，足以抵銷或放大結論）。匯率涉及重要財務決定，請諮詢往來銀行與合格財務顧問。製作者非財務顧問。
+</footer>
+</div>
+
+<script>
+// ══════ 設定：改成你的 repo ══════
+const REPO = "YOUR_GITHUB_USER/jpytwd-dashboard";
+const BUY_TRIG = 0.2075, STOP_TRIG = 0.2187;   // 牌告觸發價（第2批加碼／全部止血）
+const BATCH = [
+  {n:1, amt:1330000, due:"8/31（一）", when:"近期就換，不用等",
+   why:"這批 8 月底要用，等待期只剩三週，而現在的判斷是「等下去更可能變貴」"},
+  {n:2, amt:1330000, due:"9/04（五）", when:"牌告跌到 <b>"+0.2075+" 以下</b>就換",
+   why:"沒跌到也要在 9/04 前換掉。9/04 是美國就業數據公布日"},
+  {n:3, amt:1340000, due:"9/11（五）", when:"<b>這天是硬線，一定要換完</b>",
+   why:"9/15 和 9/17 有兩場決定日圓走向的重要會議，開完可能一夜之間貴 4~6%。不要賭會議結果"}
+];
+let D=null, board=null;
+const f=(x,n=0)=>x==null?"—":Number(x).toLocaleString('en-US',{minimumFractionDigits:n,maximumFractionDigits:n});
+const nt=x=>x==null?"—":"NT$"+f(Math.round(x));
+const pc=(x,n=2)=>x==null?"—":(x>=0?"+":"")+Number(x).toFixed(n)+"%";
+
+async function load(){
+  try{
+    const r=await fetch('data/latest.json?t='+Date.now());
+    D=await r.json();
+  }catch(e){
+    const isFile=location.protocol==='file:';
+    document.getElementById('load').innerHTML='<b style="font-size:17px;color:#b02a2a">讀不到 data/latest.json</b><br><br>'+
+      (isFile
+        ? '<span style="font-size:14px;line-height:1.9">你是用<b>直接開啟檔案</b>的方式看這一頁（file://），瀏覽器的安全限制會禁止讀取本機 JSON。<br><br>'+
+          '請改用本機伺服器：在這個資料夾執行<br><code style="background:#eef1f4;padding:3px 8px;border-radius:4px">python -m http.server 8000</code><br>'+
+          '再開 <a href="http://localhost:8000">http://localhost:8000</a><br><br>或直接看已部署的 GitHub Pages 版本。<br><br>'+
+          '（若只是想快速看一眼，同層目錄有離線快照版 HTML 可直接雙擊開啟。）</span>'
+        : '<span style="font-size:14px;line-height:1.9">請先執行 <code>python scripts/fetch_data.py</code> 產生資料，<br>或到 GitHub Actions 跑一次「每日更新匯率資料」工作流程。</span>');
+    return;
+  }
+  board=D.board.spot_sell;
+  document.getElementById('bact').href="https://github.com/"+REPO+"/actions/workflows/update.yml";
+  render();
+  document.getElementById('load').style.display='none';
+  document.getElementById('app').style.display='block';
+}
+
+// ── 手動更新：純前端抓 CORS 開放的免費匯率 API ──
+async function liveRefresh(){
+  const b=document.getElementById('brf'); b.disabled=true; b.textContent='⟳ 更新中…';
+  const srcs=[
+    async()=>{const j=await(await fetch('https://open.er-api.com/v6/latest/USD')).json();
+      return {usdtwd:j.rates.TWD, usdjpy:j.rates.JPY, src:'open.er-api', at:j.time_last_update_utc};},
+    async()=>{const j=await(await fetch('https://latest.currency-api.pages.dev/v1/currencies/usd.json')).json();
+      return {usdtwd:j.usd.twd, usdjpy:j.usd.jpy, src:'currency-api', at:j.date};},
+    async()=>{const j=await(await fetch('https://api.frankfurter.app/latest?from=USD&to=JPY')).json();
+      return {usdtwd:null, usdjpy:j.rates.JPY, src:'frankfurter', at:j.date};}
+  ];
+  for(const g of srcs){
+    try{
+      const q=await g();
+      if(!q.usdjpy) continue;
+      D.usdjpy=+q.usdjpy.toFixed(3);
+      if(q.usdtwd) D.usdtwd=+q.usdtwd.toFixed(4);
+      D.synth=+(D.usdtwd/D.usdjpy).toFixed(5);
+      if(!D.board.ok){   // 牌告非實抓 → 用加價率重推
+        D.board.spot_sell=+(D.synth*(1+D.board.markup_spot)).toFixed(4);
+        D.board.cash_sell=+(D.synth*(1+D.board.markup_cash)).toFixed(4);
+        board=D.board.spot_sell;
+      }
+      D.live={src:q.src, at:q.at};
+      render(); b.textContent='✓ 已更新（'+q.src+'）';
+      setTimeout(()=>{b.textContent='⟳ 更新即時匯率';b.disabled=false},2500);
+      return;
+    }catch(e){ /* 換下一個源 */ }
+  }
+  b.textContent='✗ 更新失敗'; setTimeout(()=>{b.textContent='⟳ 更新即時匯率';b.disabled=false},2500);
+}
+
+function rc(){
+  const v=parseFloat(document.getElementById('bd').value);
+  if(!v||v<=0) return;
+  board=v;
+  document.getElementById('bdnt').textContent=nt(D.need*v);
+  const d=D.need*v-D.need*D.board.spot_sell, e=document.getElementById('bddf');
+  e.innerHTML = Math.abs(d)<50 ? '' :
+    (d>0?'比自動抓到的牌告貴 <b class="hot">'+nt(Math.abs(d))+'</b>':'比自動抓到的牌告便宜 <b style="color:#1b7a3d">'+nt(Math.abs(d))+'</b>');
+  document.querySelectorAll('[data-batch]').forEach(el=>{
+    el.textContent="約 "+nt(+el.dataset.batch*board);
+  });
+}
+
+function render(){
+  const B=D.board, R=D.range, P=D.pctile, C=D.conf, CF=D.cftc, up=1+B.markup_spot;
+  const todayNT=D.need*B.spot_sell, cashNT=D.need*B.cash_sell;
+  const buyNT=D.need*BUY_TRIG, stopNT=D.need*STOP_TRIG;
+  const y1lo=R.y1[0]*up*D.need, y1hi=R.y1[1]*up*D.need;
+  const c4lo=C['4']?C['4'].lo*up*D.need:null, c4hi=C['4']?C['4'].hi*up*D.need:null;
+  document.getElementById('hneed').textContent=f(D.need);
+  document.getElementById('hgen').textContent=D.generated_at+(D.live?"　（即時匯率 "+D.live.src+"）":"");
+  document.getElementById('hanc').textContent=D.anchor_date+"　"+D.anchor;
+  document.getElementById('hsrc').textContent=D.rate_src+"　·　"+B.src;
+
+  // 走勢圖
+  const S=D.series, vs=S.map(x=>x[1]), mn=Math.min(...vs), mx=Math.max(...vs), rg=(mx-mn)||1;
+  const pts=vs.map((v,i)=>(i/(vs.length-1)*660+20).toFixed(1)+","+(125-(v-mn)/rg*100).toFixed(1)).join(" ");
+
+  const warn = (D.warnings&&D.warnings.length)
+    ? '<div class="banner"><b>⚠ 本次更新有 '+D.warnings.length+' 則警示</b><br>'+D.warnings.map(w=>"· "+w).join("<br>")+'</div>'
+    : '<div class="banner g"><b>✓ 所有資料源正常</b>　最後更新 '+D.generated_at+'（台北時間）。每日 09:30 自動更新，也可按上方按鈕手動重跑。</div>';
+
+  const batchRows=BATCH.map(b=>`<tr><td class="ctr"><b>${b.n}</b></td>
+    <td class="v">${f(b.amt)} 円<br><span style="font-weight:400;font-size:12px;color:#7b8894" data-batch="${b.amt}">約 ${nt(b.amt*B.spot_sell)}</span></td>
+    <td><b>${b.due}</b></td><td>${b.when}。${b.why}</td></tr>`).join("");
+
+  document.getElementById('app').innerHTML = warn + `
+
+<sec><h2>1　現在該不該換？<em>一句話結論</em></h2><div class="bd">
+<div class="lamp"><div class="dot"></div><div class="tx">
+<b>黃燈 — 照計畫走，不要等更好的價</b>
+<span>日圓現在偏貴，但再等下去更可能變更貴，不是變便宜</span></div></div>
+<p>七月底日本政府和美國聯手進場買日圓，日圓在三天內急升，換日圓變貴了約 4%。這兩天雖然回落一些，但<b>還沒回到干預前的價位</b>。</p>
+<p><b>為什麼不建議等：</b>現在往下（日圓變便宜）的空間被日本政府擋住了——他們明講會再出手；往上（日圓變貴）卻有一個大風險：全世界押注日圓會貶的人非常多，而且<b>${CF.chg2w>0?"這兩週不但沒有收手，還加碼了":"最近開始收手了，這是危險訊號"}</b>。萬一他們被迫認賠回補，日圓會在很短時間內大漲，換匯成本會跳一大階。</p>
+<p><b>白話講就是：</b>你現在賭的是「省 ${nt(todayNT-buyNT)}」，但輸的話可能是「多花 ${nt(stopNT-todayNT)}」。這筆賭注不划算。</p>
+</div></sec>
+
+<sec><h2>2　每天 30 秒：要盯的就這三件事<em>不用懂經濟，照著看數字就好</em></h2><div class="bd">
+
+<div class="chk"><div class="ch">① 每天看一次 — 台銀日圓「即期賣出」牌告</div><table><tr>
+<td style="width:52%">
+<div style="font-size:13px;color:#5a6b7a">台銀即期賣出 <span class="tag ${B.ok?'g':'y'}">${B.ok?'自動抓取':'推估值'}</span>　<span style="font-size:11.5px;color:#93a1ad">用網銀優惠價可直接改</span></div>
+<input id="bd" type="number" step="0.0001" value="${B.spot_sell}" oninput="rc()">
+<div style="font-size:14.5px;margin-top:8px">換 ${f(D.need)} 日圓要 <b id="bdnt" class="big" style="font-size:19px">${nt(todayNT)}</b></div>
+<div id="bddf" class="note" style="margin-top:4px"></div>
+<a class="lk" href="https://rate.bot.com.tw/xrt?Lang=zh-TW" target="_blank">→ 台銀牌告原始頁</a>
+</td><td><table style="font-size:14px">
+<tr><td>跌到 <b>${BUY_TRIG} 以下</b></td><td class="v" style="color:#1b7a3d">變便宜</td></tr>
+<tr><td colspan="2" class="act">→ <b>把第 2 批（${f(BATCH[1].amt)} 日圓）換掉。</b>這時 ${f(D.need)} 約 ${nt(buyNT)}，比今天省 ${nt(todayNT-buyNT)}</td></tr>
+<tr><td style="padding-top:12px">漲到 <b>${STOP_TRIG} 以上</b></td><td class="v" style="color:#c1272d">變貴</td></tr>
+<tr><td colspan="2" class="act" style="border-left-color:#c1272d">→ <b>不管進度到哪，剩下的全部換掉。</b>這時 ${f(D.need)} 要 ${nt(stopNT)}，比今天多付 ${nt(stopNT-todayNT)}。這是止血線，不是預測</td></tr>
+</table></td></tr></table></div>
+
+<div class="chk"><div class="ch">② 每天看一次 — 美元兌日圓（USD/JPY）到了哪</div><table><tr>
+<td style="width:52%"><div style="font-size:13px;color:#5a6b7a">現在</div>
+<div class="big">${D.usdjpy.toFixed(1)}</div>
+<div style="font-size:13.5px">離 <b>160</b> 這條線還有 <b>${((160-D.usdjpy)/160*100).toFixed(1)}%</b></div>
+<div class="lk" style="margin-top:6px">按上方「⟳ 更新即時匯率」可抓最新價</div>
+</td><td><table style="font-size:14px">
+<tr><td><b>159 以上</b>，而且兩天內日本政府沒動作</td></tr>
+<tr><td class="act">→ <b>代表防線守不住了。</b>日圓短期會更便宜，第 2 批可以再等等（但不能超過 9/04）</td></tr>
+<tr><td style="padding-top:12px"><b>突然跌到 152 以下</b></td></tr>
+<tr><td class="act" style="border-left-color:#c1272d">→ <b>日圓在急升，換匯正在快速變貴。</b>配合 ① 的止血線動作</td></tr>
+</table></td></tr></table></div>
+
+<div class="chk"><div class="ch">③ 每週六看一次 — 押注日圓會貶的人有沒有開始收手</div><table><tr>
+<td style="width:52%"><div style="font-size:13px;color:#5a6b7a">最新（${CF.date}）</div>
+<div class="big ${CF.chg2w>0?'r':'g'}">${(CF.net/1000).toFixed(0)} 千口</div>
+<div style="font-size:13.5px">兩週來 <b class="${CF.chg2w>0?'hot':''}" ${CF.chg2w<=0?'style="color:#1b7a3d"':''}>${CF.chg2w>0?'不減反增':'減少'}</b>（${CF.chg2w>0?'多':'少'}了 ${Math.abs(CF.chg2w/1000).toFixed(0)} 千口）</div>
+<div class="lk" style="margin-top:6px">每週六自動更新（來源：美國 CFTC）</div>
+</td><td><table style="font-size:14px">
+<tr><td><b>連續兩週明顯減少</b></td></tr>
+<tr><td class="act" style="border-left-color:#c1272d">→ <b>危險訊號。</b>代表他們開始認賠回補，日圓可能快速大漲。此時<b>提前把剩餘部位換完</b>，不要等原訂日期</td></tr>
+<tr><td style="padding-top:12px"><b>持續增加或持平</b>${CF.chg2w>0?'（＝現在的狀況）':''}</td></tr>
+<tr><td class="act">→ 照原計畫走即可，但這個風險一直存在，每週要看</td></tr>
+</table></td></tr></table></div>
+
+<div class="note"><b>為什麼是這三件事？</b>①是你實際付的錢；②決定日本政府會不會再出手（也就是日圓的下檔在哪）；③是唯一可能讓日圓在幾天內大漲的引信。其他所有指標都只是這三件事的背景說明。</div>
+</div></sec>
+
+<sec><h2>3　換匯進度與時間表<em>每一批的最後期限</em></h2><div class="bd">
+<div class="prog"><i style="width:0%"></i></div>
+<div style="font-size:13px;color:#7b8894;margin-bottom:14px">已換 0 元 ／ ${f(D.need)} 日圓</div>
+<table><tr><th class="ctr" style="width:8%">批次</th><th style="width:18%">金額</th><th style="width:16%">最後期限</th><th>什麼時候動手</th></tr>
+${batchRows}
+<tr style="background:#fdf4f4"><td class="ctr">⚠</td><td colspan="3"><b>不管進度到哪：牌告一旦漲到 ${STOP_TRIG} 以上，立刻把剩下的全部換掉。</b>那時 ${f(D.need)} 要 ${nt(stopNT)}，比今天多付 ${nt(stopNT-todayNT)}。這是止血，不是判斷行情</td></tr></table>
+<div class="note">三批的金額只是把 9 月那 2/3 對半分，方便留一個調整空檔，沒有特別的計算依據。你也可以改成 9 月一次換完。</div>
+</div></sec>
+
+<sec><h2>4　這 ${f(D.need)} 日圓，現在算貴還是便宜<em>全部用台幣講，不用看匯率數字</em></h2><div class="bd">
+<div class="spec"><div class="spbar"></div>
+<div class="pin" style="left:0%"><i></i><b>${nt(y1lo)}</b><span>過去一年最便宜<br>（${D.low_date}）</span></div>
+<div class="pin now" style="left:${Math.max(0,Math.min(100,(todayNT-y1lo)/(y1hi-y1lo)*100)).toFixed(1)}%"><i></i><b>${nt(todayNT)}</b><span>今天</span></div>
+<div class="pin" style="left:100%"><i></i><b>${nt(y1hi)}</b><span>過去一年最貴</span></div>
+</div>
+<p style="margin-top:22px">同樣是 ${f(D.need)} 日圓，<b>過去一年最便宜的時候大約 ${nt(y1lo)}，最貴大約 ${nt(y1hi)}</b>，差距約 ${nt(y1hi-y1lo)}。<b>今天是 ${nt(todayNT)}</b>。</p>
+<p><b>但這句話要小心用。</b>「過去一年最便宜」那天是 <b>${D.low_date}</b>。日圓這一年一路在貶（對換匯的人是好事），所以「最便宜」一直在刷新。真正的意思不是「現在很貴、等等就會回去」，而是<b>「那個特別便宜的價位是干預前的行情，現在回不去了」</b>。</p>
+${c4lo?`<p>接下來四週，若沒有意外，換 ${f(D.need)} 日圓大概會落在 <b>${nt(c4lo)} 到 ${nt(c4hi)}</b> 之間（八成機率）。</p>`:``}
+<svg viewBox="0 0 700 145" class="chart">
+<polygon points="20,125 ${pts} 680,125" fill="url(#g1)"/>
+<polyline points="${pts}" fill="none" stroke="#0d2b45" stroke-width="2.2"/>
+<defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d2b45" stop-opacity=".2"/><stop offset="1" stop-color="#0d2b45" stop-opacity="0"/></linearGradient></defs>
+<text x="20" y="14" class="cl">貴 · 約 ${nt(mx*up*D.need)}</text>
+<text x="20" y="141" class="cl">便宜 · 約 ${nt(mn*up*D.need)}</text>
+<text x="680" y="141" class="cl" text-anchor="end">${S[S.length-1][0]}</text></svg>
+<div class="note">上圖是最近 ${S.length} 個交易日的走勢，越往上代表換日圓越貴。<br>
+※ 「八成機率區間」是用過去 26 週的實際波動幅度算出來的，<b>它不預測會漲還是跌，只告訴你正常情況下會晃多大</b>。</div>
+</div></sec>
+
+<sec><h2>5　接下來哪些日子會影響價格<em>紅色是關鍵日、綠色是你的期限</em></h2><div class="bd">
+<table class="evt"><tr><th style="width:16%">日期</th><th style="width:30%">發生什麼事</th><th>對換匯的影響</th></tr>
+<tr><td>8/07 五</td><td>美國就業數據</td><td>數字差 → 日圓偏強 → 換匯<b>變貴一點</b></td></tr>
+<tr class="key"><td>8/10 一</td><td>日本央行公布內部討論紀要</td><td>若透露想升息 → 日圓走強 → <b>變貴</b>。這是 9 月那場大會議的第一個線索</td></tr>
+<tr><td>8/12 三</td><td>美國物價數據</td><td>物價降溫 → 美元利率有機會下來 → 日圓偏強 → <b>變貴一點</b></td></tr>
+<tr><td>每週六</td><td>押注日圓貶值的部位更新</td><td><b>檢查表第 ③ 項</b>就是看這個（自動更新）</td></tr>
+<tr><td>8/27–29</td><td>全球央行年會</td><td>美國對利率的態度定調</td></tr>
+<tr class="key"><td><b>8/31 一</b></td><td>日本公布這輪花了多少錢干預<br>＋<b>你的第一批交割日</b></td><td>金額越大代表防線越牢。<b>但公布日和你交割同一天，來不及先看再決定</b>——所以第一批要提早換</td></tr>
+<tr class="mine"><td><b>9/04 五</b></td><td><b>你的第二批期限</b></td><td>同日有美國就業數據</td></tr>
+<tr class="mine"><td><b>9/11 五</b></td><td><b>你的第三批期限（硬線）</b></td><td>下週兩場大會議前把部位清掉</td></tr>
+<tr class="key"><td>9/15–16</td><td>美國聯準會利率會議</td><td>若轉向降息 → 日圓走強 → <b>變貴</b></td></tr>
+<tr class="key"><td><b>9/17–18</b></td><td><b>日本央行利率會議</b></td><td><b>影響最大的一場。</b>若宣布升息，日圓可能一口氣升值，換 ${f(D.need)} 要多付 3 到 6 萬台幣。<b>這就是 9/11 要換完的原因</b></td></tr>
+<tr><td>9/30 三</td><td>你的第二批（2/3）實際交割</td><td></td></tr></table>
+</div></sec>
+
+<sec><h2>6　為什麼日圓會變貴或變便宜<em>四股力量在拉扯</em></h2><div class="bd">
+
+<div class="force"><div class="fh"><span class="fn">① 利息差距</span><span class="arrow a-dn">目前：讓日圓便宜</span></div>
+<p>美國的利息比日本高很多${D.rates.spread2?`（差距約 ${D.rates.spread2.val.toFixed(1)} 個百分點）`:``}。錢會往利息高的地方跑，所以資金持續離開日圓、日圓持續走弱——這對你是好事。<b>這股力量最穩定、每天都在作用，日本政府用干預也擋不住它。</b>除非日本升息把差距拉近。</p>
+<details><summary>看細節</summary><table>
+<tr><td>美國 2 年期公債</td><td class="v">${D.rates.us2??"—"}%</td><td>日本 2 年期</td><td class="v">${D.rates.jgb2}%</td><td>差距</td><td class="v">${D.rates.spread2?D.rates.spread2.val+"pp":"—"}</td></tr>
+<tr><td>美國 10 年期</td><td class="v">${D.rates.us10??"—"}%</td><td>日本 10 年期</td><td class="v">${D.rates.jgb10}%</td><td>差距</td><td class="v">${D.rates.spread10?D.rates.spread10.val+"pp":"—"}</td></tr>
+<tr><td>日本 2 年期近四週變動</td><td class="v">${pc(D.rates.jgb2_chg4w,3).replace("%","pp")}</td><td colspan="4">上升＝市場在押日本升息。日本央行政策利率 1.00%（2026-06 升息，31 年最高），9/17-18 可能再升到 1.25%</td></tr></table></details></div>
+
+<div class="force"><div class="fh"><span class="fn">② 日本政府的防線</span><span class="arrow a-up">目前：讓日圓變貴</span></div>
+<p>日圓貶太快會讓日本進口物價飆漲、民怨升高，所以政府會進場買日圓。這次<b>連美國都一起下場</b>，是 1998 年以來第一次——防線可信度比以往高。<b>對你的影響：日圓不太可能變得更便宜了，下檔被擋住。</b></p>
+<details><summary>看細節</summary><table>
+<tr><td>美元兌日圓現價</td><td class="v">${D.usdjpy}</td><td>離 160 還有 ${((160-D.usdjpy)/160*100).toFixed(1)}%；離 158 還有 ${((158-D.usdjpy)/158*100).toFixed(1)}%</td></tr>
+<tr><td>官方喊話等級</td><td class="v">最高級</td><td>8/04 日本財長：「不排除再次聯手」</td></tr>
+<tr><td>美方態度</td><td class="v">已參與</td><td>8/04 美國財長稱日圓水準「有問題」。<b>這是本輪最關鍵也最不確定的一點——若下次美國沒跟，防線等級要下修</b></td></tr>
+<tr><td>官方公布的最近一次介入</td><td class="v">${D.jp.intervention.last_event??"—"}</td><td>${D.jp.intervention.last_amount_oku?f(D.jp.intervention.last_amount_oku)+" 億円":"—"}。本輪實績 8/31 才公布，市場猜 6～13.8 兆日圓</td></tr>
+${D.jp.trade?`<tr><td>日本貿易收支</td><td class="v">${f(D.jp.trade.balance_bn,1)} 十億円</td><td>${D.jp.trade.ym}。逆差＝日本要買外幣付進口＝日圓賣壓</td></tr>`:``}
+${D.jp.cpi?`<tr><td>日本核心物價年增</td><td class="v">${pc(D.jp.cpi.yoy,1)}</td><td>${D.jp.cpi.ym}。物價越高，日本央行升息壓力越大</td></tr>`:``}
+</table></details></div>
+
+<div class="force"><div class="fh"><span class="fn">③ 押注日圓貶值的人太多</span><span class="arrow ${CF.chg2w>0?'a-up':'a-up'}">目前：風險升高</span></div>
+<p>全球有非常多資金押注日圓會繼續貶。<b>這是一把雙面刃：</b>平時他們的賣壓讓日圓便宜；但一旦情勢反轉，他們同時搶著平倉，日圓會在幾天內暴漲。1998 年上一次美日聯手後，四個月後就發生過——美元兌日圓兩天內從 135 崩到 112。</p>
+<p style="margin-top:8px" class="${CF.chg2w>0?'hot':''}"><b>目前狀況：${CF.chg2w>0?'不但沒收手，這兩週還加碼了':'開始收手了，要提高警覺'}。</b>${CF.chg2w>0?'代表市場正在測試日本政府的決心，風險沒有解除。':'依檢查表 ③ 的規則，考慮提前換完。'}</p>
+<details><summary>看細節</summary><table>
+<tr><td>押注日圓貶值的淨部位</td><td class="v">${f(CF.net)} 口</td><td>約 ${CF.notional_tn_jpy} 兆日圓（${CF.date}）；z 值 ${CF.z??"—"}</td></tr>
+<tr><td>兩週變化</td><td class="v ${CF.chg2w>0?'hot':''}">${CF.chg2w>0?"+":""}${f(CF.chg2w)} 口</td><td>正數＝加碼，不是收手</td></tr>
+<tr><td>未平倉總量</td><td class="v">${f(CF.oi)} 口</td><td>淨空佔 ${(CF.net/CF.oi*100).toFixed(1)}%</td></tr>
+<tr><td>若三成回補</td><td class="v">日圓約升 2.5~4%</td><td>換 ${f(D.need)} 要多付 2~3 萬台幣</td></tr></table></details></div>
+
+<div class="force"><div class="fh"><span class="fn">④ 台幣自己的強弱</span><span class="arrow ${D.legs20.twd>0?'a-up':'a-dn'}">目前：${D.legs20.twd>0?'小幅不利':'小幅有利'}</span></div>
+<p>你付的是台幣，所以<b>台幣對美元變弱，換日圓也會變貴</b>——就算日圓那邊沒動。這是很多人會忽略的一半。</p>
+<p style="margin-top:8px">最近 20 個交易日，換匯成本變動了 <b>${pc(D.legs20.total)}</b>，其中<b>日圓那邊佔 ${pc(D.legs20.jpy)}、台幣這邊佔 ${pc(D.legs20.twd)}</b>。</p>
+<details><summary>看細節</summary><table>
+<tr><td>美元兌台幣</td><td class="v">${D.usdtwd}</td><td>數字越大＝台幣越弱＝換日圓越貴</td></tr>
+<tr><td>近 5 日拆解</td><td colspan="2">總變動 ${pc(D.legs5.total)} ＝ 日圓端 ${pc(D.legs5.jpy)} ＋ 台幣端 ${pc(D.legs5.twd)}（誤差 ${pc(D.legs5.resid)}）</td></tr>
+<tr><td>近 20 日拆解</td><td colspan="2">總變動 ${pc(D.legs20.total)} ＝ 日圓端 ${pc(D.legs20.jpy)} ＋ 台幣端 ${pc(D.legs20.twd)}（誤差 ${pc(D.legs20.resid)}）</td></tr>
+${D.jp.flow?`<tr><td>日本資金流向（週）</td><td colspan="2">${D.jp.flow.period}：對內合計 ${f(D.jp.flow.inward_total)} 億円。負數＝外國人淨賣日本資產＝日圓賣壓</td></tr>`:``}
+</table></details></div>
+
+<div class="note"><b>四股力量現在的合力：</b>利息差距想把日圓推便宜，但政府防線擋住了下檔；而擁擠的空單和台幣走弱，都讓上檔（變貴）的風險更大。<b>結論就是第 1 區的黃燈：往下空間小、往上風險大，所以照計畫走、不要等。</b></div>
+</div></sec>
+
+<sec><h2>7　換匯方式：台幣直接買日圓<em>已定案，這一區只是記錄理由</em></h2><div class="bd">
+<div class="lamp" style="background:#f2f9f4;border-color:#1b7a3d">
+<div class="dot" style="background:#1b7a3d;box-shadow:0 0 0 6px #d8ecdd"></div><div class="tx">
+<b style="color:#1b7a3d">台幣 → 日圓，走即期（存外幣帳戶）</b>
+<span style="color:#2a5a3a">當天完成、不用開戶、不用管匯出入。換 ${f(D.need)} 日圓約 ${nt(todayNT)}</span></div></div>
+<table><tr><th style="width:40%">還能再省的地方</th><th class="v" style="width:18%">大約省</th><th>怎麼做</th></tr>
+<tr style="background:#f2f9f4"><td><b>用網銀／App 換，不要臨櫃</b></td><td class="v" style="color:#1b7a3d">數百～數千</td>
+<td>多數銀行的線上換匯有優惠匯率，比牌告好。<b>零成本、零風險</b>。換到的價格填回第 2 區就會重算</td></tr>
+<tr><td><b>不要換成日鈔</b></td><td class="v" style="color:#1b7a3d">${nt(cashNT-todayNT)}</td>
+<td>現金牌告（${B.cash_sell}）比即期（${B.spot_sell}）貴。除非真的需要現鈔，否則放外幣帳戶</td></tr></table>
+<div class="note" style="margin-top:12px"><b>對照一下：</b>就算行情完全照你希望的走（第 2 批等到 ${BUY_TRIG} 才換），也只省 ${nt(todayNT-buyNT)}。
+<b>光是「用網銀換、不換現鈔」這兩件事，效果就可能超過賭對行情——而且不用賭。</b></div>
+<details style="margin-top:12px"><summary>為什麼不走「先換美金再換日圓」？（已評估，不採用）</summary>
+<p style="font-size:13.5px;margin-top:8px">台灣的銀行換美金的價差約 0.24%、換日圓約 1.23%，差 5 倍。所以「先換美金」的直覺方向是對的，但實測結果是：</p>
+<table style="font-size:12.5px">
+<tr><td><b>在台灣的銀行 台幣→美金→日圓</b></td><td class="v hot">反而多付約 NT$3,800</td>
+<td>銀行的外幣互換實際上是把美金換回台幣再買日圓，付兩次價差，吃不到美元的低價差</td></tr>
+<tr><td><b>台幣→美金→海外券商換日圓</b></td><td class="v" style="color:#1b7a3d">可省約 NT$6,700</td>
+<td>唯一真能省的路徑，但需要海外券商帳戶、開戶到匯款到位約一到兩週、日圓匯出另有電匯費，且無存款保險</td></tr></table>
+<p style="font-size:13px;margin-top:8px;color:#7b8894">省 6,700 元換來開戶、跨境匯款、稅務申報與一到兩週等待，對這個金額不划算，故不採用。若未來單筆拉大到數百萬台幣以上可再評估。</p>
+</details>
+</div></sec>
+
+<sec><h2>8　資料來源與自動更新<em>全部免費公開</em></h2><div class="bd">
+<table><tr><th style="width:34%">資料</th><th style="width:22%">來源</th><th class="ctr" style="width:14%">狀態</th><th class="hidem">更新</th></tr>
+<tr><td>台銀牌告匯率</td><td>rate.bot.com.tw</td><td class="ctr"><span class="tag ${B.ok?'g':'y'}">${B.ok?'正常':'推估中'}</span></td><td class="hidem">每日（需台灣 IP）</td></tr>
+<tr><td>美元兌日圓、美元兌台幣、日圓兌台幣</td><td>${D.rate_src}</td><td class="ctr"><span class="tag g">正常</span></td><td class="hidem">每日＋手動即時</td></tr>
+<tr><td>日本公債利率</td><td>日本財務省</td><td class="ctr"><span class="tag g">正常</span></td><td class="hidem">${D.rates.jgb_date}</td></tr>
+<tr><td>美國公債利率</td><td>美國 FRED</td><td class="ctr"><span class="tag ${D.rates.us2?'g':'r'}">${D.rates.us2?'正常':'未設金鑰'}</span></td><td class="hidem">${D.rates.us_date??"—"}</td></tr>
+<tr><td>押注日圓貶值的部位</td><td>美國 CFTC</td><td class="ctr"><span class="tag g">正常</span></td><td class="hidem">${CF.date}（每週）</td></tr>
+<tr><td>日本資金流向</td><td>日本財務省</td><td class="ctr"><span class="tag ${D.jp.flow?'g':'y'}">${D.jp.flow?'正常':'未取得'}</span></td><td class="hidem">${D.jp.flow?D.jp.flow.period:"—"}</td></tr>
+<tr><td>日本核心物價</td><td>日本 e-Stat</td><td class="ctr"><span class="tag ${D.jp.cpi?'g':'y'}">${D.jp.cpi?'正常':'未取得'}</span></td><td class="hidem">${D.jp.cpi?D.jp.cpi.ym:"—"}</td></tr>
+<tr><td>日本貿易收支</td><td>日本財務省</td><td class="ctr"><span class="tag ${D.jp.trade?'g':'y'}">${D.jp.trade?'正常':'未取得'}</span></td><td class="hidem">${D.jp.trade?D.jp.trade.ym:"—"}</td></tr>
+<tr><td>日本干預實績</td><td>日本財務省</td><td class="ctr"><span class="tag g">正常</span></td><td class="hidem">${D.jp.intervention.last_event??"—"}</td></tr>
+</table>
+<div class="note"><b>兩個按鈕的差別：</b><br>
+· <b>「⟳ 更新即時匯率」</b>在你的瀏覽器裡直接抓免費匯率 API，<b>幾秒就好</b>，只更新美元兌日圓／美元兌台幣（以及由此推算的台幣金額）。適合盤中想看現在的價。<br>
+· <b>「▶ 重跑完整更新」</b>會觸發 GitHub Actions，重抓<b>所有</b>來源（含台銀牌告、公債、部位、日本資料），約一到兩分鐘。跑完重新載入頁面即可。<br><br>
+<b>台銀、證交所、央行三個來源會擋境外 IP</b>，所以要用位於台灣的 self-hosted runner；其餘來源（日本、美國、匯率 API）不受影響。<br><br>
+${!B.ok?'<b class="hot">目前牌告是用中價 × 上次已知加價率推估的</b>，不是實際牌告。請確認 runner 在台灣，或直接在第 2 區手動填入你查到的價格。':''}</div>
+<div class="note"><b>一個自動偵測到的問題：</b>日圓兌台幣的直接報價（${D.anchor}）和「美元兌台幣 ÷ 美元兌日圓」算出來的（${D.synth}）在盤中會有落差，因為台北下午 4 點收盤定價、而美元兌日圓是 24 小時交易。<b>本頁所有定位與區間都用確定收盤價（${D.anchor_date}），不用盤中價。</b></div>
+</div></sec>
+
+<sec><h2>9　我們說過的話，後來對不對<em>每條判斷都要結算</em></h2><div class="bd">
+<table><tr><th style="width:15%">到期</th><th style="width:34%">當初的判斷</th><th>目前</th></tr>
+<tr><td>每天</td><td>日本政府守得住 158–160 這條線</td><td><span class="tag">追蹤中</span> 若日圓貶穿 159 且兩天內沒動作，這個判斷就錯了（現在 ${D.usdjpy}）</td></tr>
+<tr><td>每週六</td><td>押注日圓貶值的人會開始收手</td><td><span class="tag ${CF.chg2w>0?'r':'g'}">${CF.chg2w>0?'已失準':'成立中'}</span> 最新一期${CF.chg2w>0?'不減反增 +'+f(CF.chg2w)+' 口，市場在測試官方':'減少 '+f(Math.abs(CF.chg2w))+' 口'}</td></tr>
+<tr><td>8/31</td><td>這輪干預規模創紀錄</td><td><span class="tag y">待結算</span> 實績當天公布</td></tr>
+<tr><td>9/18</td><td>日本央行升息機率過半</td><td><span class="tag y">待結算</span> 若真升息，換匯成本會明顯上升</td></tr></table>
+<div class="note">這一區的用意是：<b>不讓任何判斷講完就算了。</b>每條都標到期日，時間到就回來看對不對，錯了就標錯。這樣你才知道這份儀表板值不值得信。</div>
+</div></sec>
+`;
+  rc();
+}
+load();
+</script></body></html>
