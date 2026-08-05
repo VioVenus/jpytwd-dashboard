@@ -19,10 +19,11 @@ concurrency:
 
 jobs:
   update:
-    # 台銀／證交所／央行會擋境外 IP，需位於台灣的 self-hosted runner。
-    # 若暫時沒有，改成 ubuntu-latest 也能跑：其餘來源全部正常，
-    # 只有台銀牌告會改用「中價 × 上次加價率」推估，頁面會標示。
-    runs-on: ${{ vars.RUNNER_LABEL || 'self-hosted' }}
+    # 台銀／證交所／央行會擋境外 IP，最理想是位於台灣的 self-hosted runner。
+    # 預設用 GitHub 託管的 ubuntu-latest，確保沒有 self-hosted runner 時也能跑：
+    # 其餘來源全部正常，只有台銀牌告會改用「中價 × 上次加價率」推估，頁面會標示。
+    # 若已架好台灣的 self-hosted runner，於 repo Variables 設定 RUNNER_LABEL=self-hosted 即可切換。
+    runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -61,7 +62,12 @@ jobs:
           git add data/
           git diff --staged --quiet && echo "無變動" && exit 0
           git commit -m "資料更新 $(date -u +'%Y-%m-%d %H:%M') UTC"
-          git push
+          # 連續重跑時，別次可能已先推送 main → 先 rebase 再推、失敗重試，避免 non-fast-forward
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "推送衝突，第 $i 次重試…"; sleep 5
+          done
+          echo "推送重試多次仍失敗"; exit 1
 
   deploy:
     needs: update
