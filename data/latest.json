@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-08-05 12:25",
+ "generated_at": "2026-08-05 12:30",
  "anchor_date": "2026-08-05",
  "anchor": 0.2026,
- "usdjpy": 157.409,
- "usdtwd": 32.24,
- "synth": 0.20482,
+ "usdjpy": 157.403,
+ "usdtwd": 32.237,
+ "synth": 0.20481,
  "rate_src": "Yahoo Finance",
  "need": 4000000,
  "board": {
@@ -17,8 +17,8 @@
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01212,
-  "markup_cash": 0.01701
+  "markup_spot": 0.01218,
+  "markup_cash": 0.01706
  },
  "pctile": {
   "y1": 74.2,
@@ -64,29 +64,35 @@
  },
  "legs5": {
   "total": 2.55,
-  "twd": -0.38,
+  "twd": -0.39,
   "jpy": 4.02,
-  "resid": -1.09
+  "resid": -1.08
  },
  "legs20": {
   "total": 2.33,
-  "twd": 0.32,
+  "twd": 0.31,
   "jpy": 3.1,
-  "resid": -1.09
+  "resid": -1.08
  },
  "vol1y": 7.49,
  "week_std": 1.172,
  "week_ac1": -0.052,
  "rates": {
-  "us2": null,
-  "us10": null,
-  "us_date": null,
+  "us2": 4.25,
+  "us10": 4.7,
+  "us_date": "2026-08-03",
   "jgb2": 1.507,
   "jgb10": 2.801,
   "jgb_date": "2026-07-31",
   "jgb2_chg4w": 0.112,
-  "spread2": null,
-  "spread10": null
+  "spread2": {
+   "val": 2.773,
+   "z": -0.46
+  },
+  "spread10": {
+   "val": 1.949,
+   "z": -1.22
+  }
  },
  "cftc": {
   "date": "2026-07-28",
@@ -99,14 +105,7 @@
   "notional_tn_jpy": 2.043
  },
  "jp": {
-  "flow": {
-   "period": "2026．7．19～7．25",
-   "outward_total": -5324,
-   "inward_total": -34891,
-   "outward_bond": -8114,
-   "inward_bond": -15139,
-   "weeks": 1125
-  },
+  "flow": null,
   "cpi": {
    "ym": "2026-06",
    "yoy": 1.6
@@ -365,7 +364,6 @@
  ],
  "warnings": [
   "台銀牌告被擋（境外 IP？）— 沿用上次數值，請用台灣 runner",
-  "FRED_API_KEY 未設定，美債利率不可得",
-  "FRED_API_KEY 未設定，美債利率不可得"
+  "日本週次資金流失敗：HTTPSConnectionPool(host='www.mof.go.jp', port=443): Read ti"
  ]
 }
