@@ -38,7 +38,7 @@ jobs:
       - name: 抓取資料
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
-          JPY_TARGET: ${{ vars.JPY_TARGET || '4000000' }}
+          JPY_TARGET: ${{ vars.JPY_TARGET || '84000000' }}
         run: python scripts/fetch_data.py
 
       - name: 檢查產出
