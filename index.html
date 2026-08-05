@@ -73,7 +73,6 @@ footer{font-size:12px;color:#7b8894;padding:15px 16px;line-height:1.8;background
 <div class="tools">
 <button class="btn p" id="brf" onclick="liveRefresh()">⟳ 更新即時匯率</button>
 <button class="btn" onclick="location.reload()">↻ 重新載入</button>
-<a class="btn" id="bact" href="#" target="_blank">▶ 重跑完整更新（GitHub Actions）</a>
 <a class="btn" href="https://rate.bot.com.tw/xrt?Lang=zh-TW" target="_blank">台銀牌告</a>
 </div>
 </header>
@@ -122,7 +121,7 @@ async function load(){
     return;
   }
   board=D.board.spot_sell;
-  document.getElementById('bact').href="https://github.com/"+REPO+"/actions/workflows/update.yml";
+  const _sb=savedBoard(); if(_sb!=null) board=_sb;   // 沿用瀏覽器裡存過的手動牌告
   render();
   document.getElementById('load').style.display='none';
   document.getElementById('app').style.display='block';
@@ -160,6 +159,23 @@ async function liveRefresh(){
   b.textContent='✗ 更新失敗'; setTimeout(()=>{b.textContent='⟳ 更新即時匯率';b.disabled=false},2500);
 }
 
+// ── 手動牌告：存進瀏覽器 localStorage，重整／每日更新後都會記得 ──
+const BKEY='jpytwd_manual_board';
+function savedBoard(){ const v=parseFloat(localStorage.getItem(BKEY)); return (v>0)?v:null; }
+function saveBoard(){
+  const v=parseFloat(document.getElementById('bd').value);
+  if(!v||v<=0){ alert('請先輸入有效的台銀即期賣出牌告（例如 0.2140）'); return; }
+  localStorage.setItem(BKEY, v); board=v; rc();
+  const t=document.getElementById('bdtag'); if(t){ t.textContent='已儲存·手動'; t.className='tag g'; }
+  const s=document.getElementById('bdsave'); if(s){ s.textContent='✓ 已儲存'; setTimeout(()=>{s.textContent='💾 儲存';},2000); }
+}
+function clearBoard(){
+  localStorage.removeItem(BKEY);
+  const auto=D.board.spot_sell;
+  document.getElementById('bd').value=auto; board=auto; rc();
+  const t=document.getElementById('bdtag'); if(t){ t.textContent=D.board.ok?'自動抓取':'推估值'; t.className='tag '+(D.board.ok?'g':'y'); }
+}
+
 function rc(){
   const v=parseFloat(document.getElementById('bd').value);
   if(!v||v<=0) return;
@@ -175,6 +191,7 @@ function rc(){
 
 function render(){
   const B=D.board, R=D.range, P=D.pctile, C=D.conf, CF=D.cftc, up=1+B.markup_spot;
+  const sb=savedBoard();   // 瀏覽器裡存過的手動牌告（沒有則 null）
   const todayNT=D.need*B.spot_sell, cashNT=D.need*B.cash_sell;
   const buyNT=D.need*BUY_TRIG, stopNT=D.need*STOP_TRIG;
   const y1lo=R.y1[0]*up*D.need, y1hi=R.y1[1]*up*D.need;
@@ -211,8 +228,12 @@ function render(){
 
 <div class="chk"><div class="ch">① 每天看一次 — 台銀日圓「即期賣出」牌告</div><table><tr>
 <td style="width:52%">
-<div style="font-size:13px;color:#5a6b7a">台銀即期賣出 <span class="tag ${B.ok?'g':'y'}">${B.ok?'自動抓取':'推估值'}</span>　<span style="font-size:11.5px;color:#93a1ad">用網銀優惠價可直接改</span></div>
-<input id="bd" type="number" step="0.0001" value="${B.spot_sell}" oninput="rc()">
+<div style="font-size:13px;color:#5a6b7a">台銀即期賣出 <span id="bdtag" class="tag ${sb!=null?'g':(B.ok?'g':'y')}">${sb!=null?'已儲存·手動':(B.ok?'自動抓取':'推估值')}</span>　<span style="font-size:11.5px;color:#93a1ad">查到牌告後填入,按儲存會記住</span></div>
+<input id="bd" type="number" step="0.0001" value="${sb!=null?sb:B.spot_sell}" oninput="rc()">
+<div style="margin-top:7px;display:flex;gap:8px">
+<button class="btn" style="background:#0d2b45;color:#fff;border-color:#0d2b45;padding:6px 14px;font-size:13px" id="bdsave" onclick="saveBoard()">💾 儲存</button>
+<button class="btn" style="background:#eef1f4;color:#5a6b7a;border-color:#dde3e8;padding:6px 14px;font-size:13px" onclick="clearBoard()">↩︎ 清除·改回自動</button>
+</div>
 <div style="font-size:14.5px;margin-top:8px">換 ${f(D.need)} 日圓要 <b id="bdnt" class="big" style="font-size:19px">${nt(todayNT)}</b></div>
 <div id="bddf" class="note" style="margin-top:4px"></div>
 <a class="lk" href="https://rate.bot.com.tw/xrt?Lang=zh-TW" target="_blank">→ 台銀牌告原始頁</a>
