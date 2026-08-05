@@ -23,7 +23,7 @@ warnings.filterwarnings('ignore')
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / 'data'; DATA.mkdir(exist_ok=True); (DATA/'history').mkdir(exist_ok=True)
 UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36'}
-FRED_KEY = os.environ.get('FRED_API_KEY', '')
+FRED_KEY = os.environ.get('FRED_API_KEY', 'fbe7b81e83ea7db772be4404903cb0ab')
 NEED = int(os.environ.get('JPY_TARGET', '4000000'))
 WARN = []          # 收集失效訊息，顯示在頁面上
 def warn(m):
