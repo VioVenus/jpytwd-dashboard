@@ -1,30 +1,30 @@
 {
- "generated_at": "2026-08-05 12:30",
+ "generated_at": "2026-08-05 13:28",
  "anchor_date": "2026-08-05",
- "anchor": 0.2026,
- "usdjpy": 157.403,
- "usdtwd": 32.237,
- "synth": 0.20481,
+ "anchor": 0.2024,
+ "usdjpy": 157.622,
+ "usdtwd": 32.246,
+ "synth": 0.20458,
  "rate_src": "Yahoo Finance",
  "need": 4000000,
  "board": {
   "src": "中價 × 上次加價率推估（台銀未取得）",
   "ok": false,
   "quoted_at": null,
-  "spot_sell": 0.2073,
-  "cash_sell": 0.2083,
+  "spot_sell": 0.2071,
+  "cash_sell": 0.2081,
   "spot_buy": null,
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01218,
-  "markup_cash": 0.01706
+  "markup_spot": 0.01233,
+  "markup_cash": 0.01722
  },
  "pctile": {
-  "y1": 74.2,
-  "y3": 30.7,
-  "y5": 18.4,
-  "all": 9.3
+  "y1": 73.4,
+  "y3": 30.2,
+  "y5": 18.1,
+  "all": 9.1
  },
  "range": {
   "y1": [
@@ -48,35 +48,35 @@
  "conf": {
   "1": {
    "hw_pct": 1.156,
-   "lo": 0.20027,
-   "hi": 0.20495
+   "lo": 0.20007,
+   "hi": 0.20475
   },
   "2": {
    "hw_pct": 1.246,
-   "lo": 0.20009,
-   "hi": 0.20514
+   "lo": 0.19989,
+   "hi": 0.20494
   },
   "4": {
    "hw_pct": 2.225,
-   "lo": 0.19814,
-   "hi": 0.20716
+   "lo": 0.19795,
+   "hi": 0.20695
   }
  },
  "legs5": {
-  "total": 2.55,
-  "twd": -0.39,
-  "jpy": 4.02,
-  "resid": -1.08
+  "total": 2.45,
+  "twd": -0.36,
+  "jpy": 3.88,
+  "resid": -1.07
  },
  "legs20": {
-  "total": 2.33,
-  "twd": 0.31,
-  "jpy": 3.1,
-  "resid": -1.08
+  "total": 2.24,
+  "twd": 0.34,
+  "jpy": 2.96,
+  "resid": -1.07
  },
- "vol1y": 7.49,
+ "vol1y": 7.51,
  "week_std": 1.172,
- "week_ac1": -0.052,
+ "week_ac1": -0.0524,
  "rates": {
   "us2": 4.25,
   "us10": 4.7,
@@ -105,7 +105,14 @@
   "notional_tn_jpy": 2.043
  },
  "jp": {
-  "flow": null,
+  "flow": {
+   "period": "2026．7．19～7．25",
+   "outward_total": -5324,
+   "inward_total": -34891,
+   "outward_bond": -8114,
+   "inward_bond": -15139,
+   "weeks": 1125
+  },
   "cpi": {
    "ym": "2026-06",
    "yoy": 1.6
@@ -359,11 +366,10 @@
   ],
   [
    "2026-08-05",
-   0.2026
+   0.2024
   ]
  ],
  "warnings": [
-  "台銀牌告被擋（境外 IP？）— 沿用上次數值，請用台灣 runner",
-  "日本週次資金流失敗：HTTPSConnectionPool(host='www.mof.go.jp', port=443): Read ti"
+  "台銀牌告被擋（境外 IP？）— 沿用上次數值，請用台灣 runner"
  ]
 }
