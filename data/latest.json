@@ -1,30 +1,30 @@
 {
- "generated_at": "2026-08-06 19:41",
- "anchor_date": "2026-08-06",
- "anchor": 0.2023,
- "usdjpy": 157.842,
- "usdtwd": 32.27,
- "synth": 0.20444,
+ "generated_at": "2026-08-07 09:52",
+ "anchor_date": "2026-08-07",
+ "anchor": 0.2013,
+ "usdjpy": 158.31,
+ "usdtwd": 32.216,
+ "synth": 0.2035,
  "rate_src": "Yahoo Finance",
  "need": 84000000,
  "board": {
   "src": "中價 × 上次加價率推估（台銀未取得）",
   "ok": false,
   "quoted_at": null,
-  "spot_sell": 0.2069,
-  "cash_sell": 0.2079,
+  "spot_sell": 0.2059,
+  "cash_sell": 0.2069,
   "spot_buy": null,
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01201,
-  "markup_cash": 0.0169
+  "markup_spot": 0.0118,
+  "markup_cash": 0.01671
  },
  "pctile": {
-  "y1": 73.0,
-  "y3": 29.8,
-  "y5": 17.9,
-  "all": 9.0
+  "y1": 62.3,
+  "y3": 24.1,
+  "y5": 14.4,
+  "all": 7.3
  },
  "range": {
   "y1": [
@@ -48,39 +48,39 @@
  "conf": {
   "1": {
    "hw_pct": 1.156,
-   "lo": 0.19998,
-   "hi": 0.20465
+   "lo": 0.19899,
+   "hi": 0.20364
   },
   "2": {
    "hw_pct": 1.246,
-   "lo": 0.1998,
-   "hi": 0.20484
+   "lo": 0.19881,
+   "hi": 0.20382
   },
   "4": {
-   "hw_pct": 2.225,
-   "lo": 0.19785,
-   "hi": 0.20685
+   "hw_pct": 2.165,
+   "lo": 0.19699,
+   "hi": 0.20571
   }
  },
  "legs5": {
-  "total": 2.11,
-  "twd": -0.24,
-  "jpy": 3.4,
-  "resid": -1.04
+  "total": -0.48,
+  "twd": -0.55,
+  "jpy": 1.18,
+  "resid": -1.11
  },
  "legs20": {
-  "total": 2.38,
-  "twd": 0.5,
-  "jpy": 2.93,
-  "resid": -1.05
+  "total": 1.82,
+  "twd": 0.37,
+  "jpy": 2.53,
+  "resid": -1.08
  },
- "vol1y": 7.47,
+ "vol1y": 7.52,
  "week_std": 1.172,
- "week_ac1": -0.0526,
+ "week_ac1": -0.0545,
  "rates": {
-  "us2": 4.2,
+  "us2": 4.18,
   "us10": 4.63,
-  "us_date": "2026-08-04",
+  "us_date": "2026-08-05",
   "jgb2": 1.507,
   "jgb10": 2.801,
   "jgb_date": "2026-07-31",
@@ -122,16 +122,12 @@
    "balance_bn": -409.9
   },
   "intervention": {
-   "last_event": "2024-Jul-12",
-   "last_amount_oku": 23670,
-   "events": 78
+   "last_event": "2026-May-6",
+   "last_amount_oku": 46759,
+   "events": 81
   }
  },
  "series": [
-  [
-   "2026-05-15",
-   0.19936
-  ],
   [
    "2026-05-18",
    0.19884
@@ -366,7 +362,11 @@
   ],
   [
    "2026-08-06",
-   0.2023
+   0.20474
+  ],
+  [
+   "2026-08-07",
+   0.2013
   ]
  ],
  "warnings": [
