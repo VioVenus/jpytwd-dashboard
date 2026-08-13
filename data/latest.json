@@ -1,30 +1,30 @@
 {
- "generated_at": "2026-08-13 08:42",
- "anchor_date": "2026-08-12",
- "anchor": 0.20222,
- "usdjpy": 159.265,
- "usdtwd": 32.2091,
- "synth": 0.20224,
+ "generated_at": "2026-08-13 18:37",
+ "anchor_date": "2026-08-13",
+ "anchor": 0.1994,
+ "usdjpy": 159.33,
+ "usdtwd": 32.116,
+ "synth": 0.20157,
  "rate_src": "Yahoo Finance",
  "need": 84000000,
  "board": {
   "src": "中價 × 上次加價率推估（台銀未取得）",
   "ok": false,
   "quoted_at": null,
-  "spot_sell": 0.2046,
-  "cash_sell": 0.2055,
+  "spot_sell": 0.2039,
+  "cash_sell": 0.2048,
   "spot_buy": null,
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01169,
-  "markup_cash": 0.01614
+  "markup_spot": 0.01156,
+  "markup_cash": 0.01603
  },
  "pctile": {
-  "y1": 72.2,
-  "y3": 29.5,
-  "y5": 17.7,
-  "all": 8.9
+  "y1": 30.2,
+  "y3": 11.6,
+  "y5": 7.0,
+  "all": 3.5
  },
  "range": {
   "y1": [
@@ -47,36 +47,36 @@
  "low_date": "2026-07-01",
  "conf": {
   "1": {
-   "hw_pct": 1.056,
-   "lo": 0.2001,
-   "hi": 0.20437
+   "hw_pct": 1.156,
+   "lo": 0.19711,
+   "hi": 0.20172
   },
   "2": {
-   "hw_pct": 1.246,
-   "lo": 0.19972,
-   "hi": 0.20475
+   "hw_pct": 1.403,
+   "lo": 0.19662,
+   "hi": 0.20222
   },
   "4": {
    "hw_pct": 2.165,
-   "lo": 0.19789,
-   "hi": 0.20665
+   "lo": 0.19513,
+   "hi": 0.20376
   }
  },
  "legs5": {
-  "total": -1.53,
-  "twd": -0.58,
-  "jpy": -0.99,
-  "resid": 0.04
+  "total": -2.64,
+  "twd": -0.46,
+  "jpy": -1.09,
+  "resid": -1.09
  },
  "legs20": {
-  "total": 2.04,
-  "twd": 0.23,
-  "jpy": 1.82,
-  "resid": -0.01
+  "total": 0.33,
+  "twd": -0.3,
+  "jpy": 1.71,
+  "resid": -1.08
  },
- "vol1y": 7.37,
- "week_std": 1.171,
- "week_ac1": -0.0511,
+ "vol1y": 7.5,
+ "week_std": 1.174,
+ "week_ac1": -0.0521,
  "rates": {
   "us2": 4.22,
   "us10": 4.7,
@@ -128,10 +128,6 @@
   }
  },
  "series": [
-  [
-   "2026-05-21",
-   0.19882
-  ],
   [
    "2026-05-22",
    0.1984
@@ -367,6 +363,10 @@
   [
    "2026-08-12",
    0.20222
+  ],
+  [
+   "2026-08-13",
+   0.1994
   ]
  ],
  "warnings": [
