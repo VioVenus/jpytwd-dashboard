@@ -1,30 +1,30 @@
 {
- "generated_at": "2026-08-20 07:54",
- "anchor_date": "2026-08-20",
- "anchor": 0.1989,
- "usdjpy": 158.238,
- "usdtwd": 31.794,
- "synth": 0.20093,
+ "generated_at": "2026-08-20 18:01",
+ "anchor_date": "2026-08-19",
+ "anchor": 0.19981,
+ "usdjpy": 159.55,
+ "usdtwd": 31.8819,
+ "synth": 0.19982,
  "rate_src": "Yahoo Finance",
  "need": 84000000,
  "board": {
   "src": "中價 × 上次加價率推估（台銀未取得）",
   "ok": false,
   "quoted_at": null,
-  "spot_sell": 0.2032,
-  "cash_sell": 0.2041,
+  "spot_sell": 0.2021,
+  "cash_sell": 0.203,
   "spot_buy": null,
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01132,
-  "markup_cash": 0.0158
+  "markup_spot": 0.01139,
+  "markup_cash": 0.01589
  },
  "pctile": {
-  "y1": 28.2,
-  "y3": 10.6,
-  "y5": 6.3,
-  "all": 3.2
+  "y1": 36.1,
+  "y3": 14.3,
+  "y5": 8.6,
+  "all": 4.3
  },
  "range": {
   "y1": [
@@ -47,36 +47,36 @@
  "low_date": "2026-07-01",
  "conf": {
   "1": {
-   "hw_pct": 1.156,
-   "lo": 0.19661,
-   "hi": 0.20121
+   "hw_pct": 1.061,
+   "lo": 0.19771,
+   "hi": 0.20194
   },
   "2": {
    "hw_pct": 1.497,
-   "lo": 0.19594,
-   "hi": 0.2019
+   "lo": 0.19685,
+   "hi": 0.20283
   },
   "4": {
    "hw_pct": 1.975,
-   "lo": 0.19501,
-   "hi": 0.20287
+   "lo": 0.19591,
+   "hi": 0.2038
   }
  },
  "legs5": {
-  "total": -1.6,
-  "twd": -1.28,
-  "jpy": 0.69,
-  "resid": -1.01
+  "total": -1.2,
+  "twd": -1.02,
+  "jpy": -0.18,
+  "resid": 0.0
  },
  "legs20": {
-  "total": 0.19,
-  "twd": -1.82,
-  "jpy": 3.01,
-  "resid": -1.0
+  "total": 0.87,
+  "twd": -1.38,
+  "jpy": 2.25,
+  "resid": -0.0
  },
- "vol1y": 7.38,
- "week_std": 1.172,
- "week_ac1": -0.0498,
+ "vol1y": 7.36,
+ "week_std": 1.171,
+ "week_ac1": -0.0504,
  "rates": {
   "us2": 4.19,
   "us10": 4.71,
@@ -128,6 +128,10 @@
   }
  },
  "series": [
+  [
+   "2026-05-28",
+   0.19719
+  ],
   [
    "2026-05-29",
    0.1973
@@ -363,10 +367,6 @@
   [
    "2026-08-19",
    0.19981
-  ],
-  [
-   "2026-08-20",
-   0.1989
   ]
  ],
  "warnings": [
