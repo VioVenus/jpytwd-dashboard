@@ -1,30 +1,30 @@
 {
- "generated_at": "2026-08-21 07:55",
- "anchor_date": "2026-08-21",
- "anchor": 0.1982,
- "usdjpy": 158.926,
- "usdtwd": 31.834,
- "synth": 0.20031,
+ "generated_at": "2026-08-21 18:01",
+ "anchor_date": "2026-08-20",
+ "anchor": 0.201,
+ "usdjpy": 158.276,
+ "usdtwd": 31.8151,
+ "synth": 0.20101,
  "rate_src": "Yahoo Finance",
  "need": 84000000,
  "board": {
   "src": "中價 × 上次加價率推估（台銀未取得）",
   "ok": false,
   "quoted_at": null,
-  "spot_sell": 0.2026,
-  "cash_sell": 0.2035,
+  "spot_sell": 0.2033,
+  "cash_sell": 0.2042,
   "spot_buy": null,
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01145,
-  "markup_cash": 0.01594
+  "markup_spot": 0.01139,
+  "markup_cash": 0.01587
  },
  "pctile": {
-  "y1": 21.0,
-  "y3": 7.7,
-  "y5": 4.6,
-  "all": 2.3
+  "y1": 58.7,
+  "y3": 22.9,
+  "y5": 13.7,
+  "all": 6.9
  },
  "range": {
   "y1": [
@@ -47,36 +47,36 @@
  "low_date": "2026-07-01",
  "conf": {
   "1": {
-   "hw_pct": 1.156,
-   "lo": 0.19592,
-   "hi": 0.2005
+   "hw_pct": 1.061,
+   "lo": 0.19888,
+   "hi": 0.20315
   },
   "2": {
-   "hw_pct": 1.497,
-   "lo": 0.19526,
-   "hi": 0.20119
+   "hw_pct": 1.266,
+   "lo": 0.19847,
+   "hi": 0.20357
   },
   "4": {
-   "hw_pct": 1.975,
-   "lo": 0.19432,
-   "hi": 0.20215
+   "hw_pct": 2.052,
+   "lo": 0.19692,
+   "hi": 0.20517
   }
  },
  "legs5": {
-  "total": -1.63,
-  "twd": -0.91,
-  "jpy": 0.31,
-  "resid": -1.04
+  "total": -0.55,
+  "twd": -1.21,
+  "jpy": 0.66,
+  "resid": -0.0
  },
  "legs20": {
-  "total": 0.54,
-  "twd": -1.45,
-  "jpy": 3.04,
-  "resid": -1.05
+  "total": 1.24,
+  "twd": -1.76,
+  "jpy": 2.99,
+  "resid": 0.01
  },
- "vol1y": 7.52,
- "week_std": 1.173,
- "week_ac1": -0.0493,
+ "vol1y": 7.39,
+ "week_std": 1.17,
+ "week_ac1": -0.0511,
  "rates": {
   "us2": 4.19,
   "us10": 4.65,
@@ -128,6 +128,10 @@
   }
  },
  "series": [
+  [
+   "2026-05-29",
+   0.1973
+  ],
   [
    "2026-06-01",
    0.19712
@@ -363,10 +367,6 @@
   [
    "2026-08-20",
    0.201
-  ],
-  [
-   "2026-08-21",
-   0.1982
   ]
  ],
  "warnings": [
