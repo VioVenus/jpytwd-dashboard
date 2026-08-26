@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-08-26 07:55",
+ "generated_at": "2026-08-26 18:06",
  "anchor_date": "2026-08-26",
  "anchor": 0.1978,
- "usdjpy": 159.24,
- "usdtwd": 31.841,
- "synth": 0.19996,
+ "usdjpy": 158.988,
+ "usdtwd": 31.79,
+ "synth": 0.19995,
  "rate_src": "Yahoo Finance",
  "need": 84000000,
  "board": {
@@ -17,8 +17,8 @@
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01172,
-  "markup_cash": 0.01622
+  "markup_spot": 0.01174,
+  "markup_cash": 0.01624
  },
  "pctile": {
   "y1": 17.5,
@@ -64,14 +64,14 @@
  },
  "legs5": {
   "total": -1.01,
-  "twd": -0.13,
-  "jpy": 0.19,
+  "twd": -0.29,
+  "jpy": 0.35,
   "resid": -1.08
  },
  "legs20": {
   "total": 0.15,
-  "twd": -1.63,
-  "jpy": 2.86,
+  "twd": -1.79,
+  "jpy": 3.02,
   "resid": -1.08
  },
  "vol1y": 7.45,
