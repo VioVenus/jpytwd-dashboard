@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-08-26 18:06",
+ "generated_at": "2026-08-27 13:00",
  "anchor_date": "2026-08-26",
- "anchor": 0.1978,
- "usdjpy": 158.988,
- "usdtwd": 31.79,
- "synth": 0.19995,
+ "anchor": 0.19995,
+ "usdjpy": 159.223,
+ "usdtwd": 31.8419,
+ "synth": 0.19998,
  "rate_src": "Yahoo Finance",
  "need": 84000000,
  "board": {
@@ -17,14 +17,14 @@
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01174,
-  "markup_cash": 0.01624
+  "markup_spot": 0.01159,
+  "markup_cash": 0.01609
  },
  "pctile": {
-  "y1": 17.5,
-  "y3": 6.0,
-  "y5": 3.6,
-  "all": 1.8
+  "y1": 39.3,
+  "y3": 15.7,
+  "y5": 9.4,
+  "all": 4.7
  },
  "range": {
   "y1": [
@@ -47,40 +47,40 @@
  "low_date": "2026-07-01",
  "conf": {
   "1": {
-   "hw_pct": 1.061,
-   "lo": 0.19571,
-   "hi": 0.19991
+   "hw_pct": 0.878,
+   "lo": 0.1982,
+   "hi": 0.20172
   },
   "2": {
-   "hw_pct": 1.427,
-   "lo": 0.195,
-   "hi": 0.20064
+   "hw_pct": 1.246,
+   "lo": 0.19748,
+   "hi": 0.20246
   },
   "4": {
-   "hw_pct": 1.977,
-   "lo": 0.19393,
-   "hi": 0.20175
+   "hw_pct": 1.618,
+   "lo": 0.19674,
+   "hi": 0.20321
   }
  },
  "legs5": {
-  "total": -1.01,
-  "twd": -0.29,
-  "jpy": 0.35,
-  "resid": -1.08
+  "total": 0.07,
+  "twd": -0.13,
+  "jpy": 0.21,
+  "resid": -0.01
  },
  "legs20": {
-  "total": 0.15,
-  "twd": -1.79,
-  "jpy": 3.02,
-  "resid": -1.08
+  "total": 1.23,
+  "twd": -1.63,
+  "jpy": 2.87,
+  "resid": -0.01
  },
- "vol1y": 7.45,
- "week_std": 1.171,
- "week_ac1": -0.0498,
+ "vol1y": 7.37,
+ "week_std": 1.169,
+ "week_ac1": -0.0506,
  "rates": {
-  "us2": 4.24,
-  "us10": 4.7,
-  "us_date": "2026-08-24",
+  "us2": 4.17,
+  "us10": 4.64,
+  "us_date": "2026-08-25",
   "jgb2": 1.507,
   "jgb10": 2.801,
   "jgb_date": "2026-07-31",
@@ -106,12 +106,12 @@
  },
  "jp": {
   "flow": {
-   "period": "2026．8．9～8．15",
-   "outward_total": 24402,
-   "inward_total": -18362,
-   "outward_bond": 11351,
-   "inward_bond": -12499,
-   "weeks": 1128
+   "period": "2026．8．16～8．22",
+   "outward_total": -30578,
+   "inward_total": -23961,
+   "outward_bond": -19784,
+   "inward_bond": 4352,
+   "weeks": 1129
   },
   "cpi": {
    "ym": "2026-07",
@@ -366,7 +366,7 @@
   ],
   [
    "2026-08-26",
-   0.1978
+   0.19995
   ]
  ],
  "warnings": [
