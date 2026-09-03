@@ -1,30 +1,30 @@
 {
- "generated_at": "2026-09-02 21:47",
- "anchor_date": "2026-09-02",
+ "generated_at": "2026-09-03 09:25",
+ "anchor_date": "2026-09-03",
  "anchor": 0.1978,
- "usdjpy": 158.698,
- "usdtwd": 31.715,
- "synth": 0.19984,
+ "usdjpy": 158.585,
+ "usdtwd": 31.716,
+ "synth": 0.19999,
  "rate_src": "Yahoo Finance",
  "need": 84000000,
  "board": {
   "src": "中價 × 上次加價率推估（台銀未取得）",
   "ok": false,
   "quoted_at": null,
-  "spot_sell": 0.2021,
-  "cash_sell": 0.203,
+  "spot_sell": 0.2022,
+  "cash_sell": 0.2032,
   "spot_buy": null,
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01128,
-  "markup_cash": 0.01579
+  "markup_spot": 0.01103,
+  "markup_cash": 0.01603
  },
  "pctile": {
-  "y1": 17.9,
-  "y3": 6.1,
+  "y1": 18.3,
+  "y3": 6.2,
   "y5": 3.7,
-  "all": 1.8
+  "all": 1.9
  },
  "range": {
   "y1": [
@@ -63,24 +63,24 @@
   }
  },
  "legs5": {
-  "total": -1.08,
-  "twd": -0.4,
-  "jpy": 0.33,
-  "resid": -1.01
+  "total": -0.96,
+  "twd": -0.28,
+  "jpy": 0.42,
+  "resid": -1.1
  },
  "legs20": {
-  "total": -3.74,
-  "twd": -2.12,
-  "jpy": -0.64,
-  "resid": -0.98
+  "total": -3.45,
+  "twd": -1.72,
+  "jpy": -0.62,
+  "resid": -1.11
  },
  "vol1y": 7.38,
  "week_std": 1.169,
  "week_ac1": -0.0497,
  "rates": {
-  "us2": 4.34,
-  "us10": 4.75,
-  "us_date": "2026-08-31",
+  "us2": 4.39,
+  "us10": 4.79,
+  "us_date": "2026-09-01",
   "jgb2": 1.743,
   "jgb10": 2.943,
   "jgb_date": "2026-08-31",
@@ -106,12 +106,12 @@
  },
  "jp": {
   "flow": {
-   "period": "2026．8．16～8．22",
-   "outward_total": -30578,
-   "inward_total": -23961,
-   "outward_bond": -19784,
-   "inward_bond": 4352,
-   "weeks": 1129
+   "period": "2026．8．23～8．29",
+   "outward_total": -7979,
+   "inward_total": 5615,
+   "outward_bond": -8240,
+   "inward_bond": 5091,
+   "weeks": 1130
   },
   "cpi": {
    "ym": "2026-07",
@@ -128,10 +128,6 @@
   }
  },
  "series": [
-  [
-   "2026-06-11",
-   0.19715
-  ],
   [
    "2026-06-12",
    0.1972
@@ -366,6 +362,10 @@
   ],
   [
    "2026-09-02",
+   0.19772
+  ],
+  [
+   "2026-09-03",
    0.1978
   ]
  ],
