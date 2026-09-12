@@ -1,24 +1,24 @@
 {
- "generated_at": "2026-09-11 21:43",
+ "generated_at": "2026-09-12 09:30",
  "anchor_date": "2026-09-11",
  "anchor": 0.2037,
- "usdjpy": 153.47,
- "usdtwd": 31.6,
- "synth": 0.2059,
+ "usdjpy": 153.554,
+ "usdtwd": 31.627,
+ "synth": 0.20597,
  "rate_src": "Yahoo Finance",
  "need": 84000000,
  "board": {
   "src": "中價 × 上次加價率推估（台銀未取得）",
   "ok": false,
   "quoted_at": null,
-  "spot_sell": 0.2083,
-  "cash_sell": 0.2093,
+  "spot_sell": 0.2084,
+  "cash_sell": 0.2094,
   "spot_buy": null,
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01164,
-  "markup_cash": 0.0165
+  "markup_spot": 0.01181,
+  "markup_cash": 0.01667
  },
  "pctile": {
   "y1": 87.7,
@@ -64,23 +64,23 @@
  },
  "legs5": {
   "total": 0.05,
-  "twd": -0.3,
-  "jpy": 1.42,
-  "resid": -1.07
+  "twd": -0.22,
+  "jpy": 1.36,
+  "resid": -1.1
  },
  "legs20": {
   "total": 1.1,
-  "twd": -1.64,
-  "jpy": 3.81,
-  "resid": -1.06
+  "twd": -1.56,
+  "jpy": 3.75,
+  "resid": -1.09
  },
  "vol1y": 7.76,
  "week_std": 1.173,
  "week_ac1": -0.052,
  "rates": {
-  "us2": 4.43,
-  "us10": 4.83,
-  "us_date": "2026-09-09",
+  "us2": 4.56,
+  "us10": 4.95,
+  "us_date": "2026-09-10",
   "jgb2": 1.743,
   "jgb10": 2.943,
   "jgb_date": "2026-08-31",
@@ -95,14 +95,14 @@
   }
  },
  "cftc": {
-  "date": "2026-09-01",
-  "long": 117169,
-  "short": 209396,
-  "net": 92227,
-  "oi": 411882,
-  "z": 1.22,
-  "chg2w": 39334,
-  "notional_tn_jpy": 1.153
+  "date": "2026-09-08",
+  "long": 178791,
+  "short": 167995,
+  "net": -10796,
+  "oi": 499635,
+  "z": 0.07,
+  "chg2w": -74094,
+  "notional_tn_jpy": -0.135
  },
  "jp": {
   "flow": {
