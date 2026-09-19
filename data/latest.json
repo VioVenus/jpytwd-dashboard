@@ -1,30 +1,30 @@
 {
- "generated_at": "2026-09-18 21:44",
+ "generated_at": "2026-09-19 09:33",
  "anchor_date": "2026-09-18",
- "anchor": 0.1994,
- "usdjpy": 157.792,
- "usdtwd": 31.8,
- "synth": 0.20153,
+ "anchor": 0.2003,
+ "usdjpy": 156.855,
+ "usdtwd": 31.763,
+ "synth": 0.2025,
  "rate_src": "Yahoo Finance",
  "need": 84000000,
  "board": {
   "src": "中價 × 上次加價率推估（台銀未取得）",
   "ok": false,
   "quoted_at": null,
-  "spot_sell": 0.204,
-  "cash_sell": 0.205,
+  "spot_sell": 0.205,
+  "cash_sell": 0.206,
   "spot_buy": null,
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01225,
-  "markup_cash": 0.01721
+  "markup_spot": 0.01235,
+  "markup_cash": 0.01729
  },
  "pctile": {
-  "y1": 31.7,
-  "y3": 12.2,
-  "y5": 7.3,
-  "all": 3.6
+  "y1": 48.4,
+  "y3": 19.2,
+  "y5": 11.5,
+  "all": 5.7
  },
  "range": {
   "y1": [
@@ -48,39 +48,39 @@
  "conf": {
   "1": {
    "hw_pct": 0.884,
-   "lo": 0.19765,
-   "hi": 0.20117
+   "lo": 0.19854,
+   "hi": 0.20208
   },
   "2": {
    "hw_pct": 1.601,
-   "lo": 0.19623,
-   "hi": 0.20262
+   "lo": 0.19712,
+   "hi": 0.20353
   },
   "4": {
    "hw_pct": 1.63,
-   "lo": 0.19618,
-   "hi": 0.20268
+   "lo": 0.19706,
+   "hi": 0.20359
   }
  },
  "legs5": {
-  "total": -2.66,
-  "twd": 0.52,
-  "jpy": -2.12,
-  "resid": -1.06
+  "total": -2.21,
+  "twd": 0.4,
+  "jpy": -1.52,
+  "resid": -1.09
  },
  "legs20": {
-  "total": -0.47,
-  "twd": -0.12,
-  "jpy": 0.69,
-  "resid": -1.04
+  "total": -0.02,
+  "twd": -0.24,
+  "jpy": 1.28,
+  "resid": -1.07
  },
- "vol1y": 8.12,
- "week_std": 1.178,
- "week_ac1": -0.0522,
+ "vol1y": 8.0,
+ "week_std": 1.176,
+ "week_ac1": -0.0519,
  "rates": {
-  "us2": 4.74,
-  "us10": 5.01,
-  "us_date": "2026-09-16",
+  "us2": 4.67,
+  "us10": 4.94,
+  "us_date": "2026-09-17",
   "jgb2": 1.743,
   "jgb10": 2.943,
   "jgb_date": "2026-08-31",
@@ -95,14 +95,14 @@
   }
  },
  "cftc": {
-  "date": "2026-09-08",
-  "long": 178791,
-  "short": 167995,
-  "net": -10796,
-  "oi": 499635,
-  "z": 0.07,
-  "chg2w": -74094,
-  "notional_tn_jpy": -0.135
+  "date": "2026-09-15",
+  "long": 237951,
+  "short": 117592,
+  "net": -120359,
+  "oi": 542802,
+  "z": -1.14,
+  "chg2w": -212586,
+  "notional_tn_jpy": -1.504
  },
  "jp": {
   "flow": {
@@ -366,7 +366,7 @@
   ],
   [
    "2026-09-18",
-   0.1994
+   0.2003
   ]
  ],
  "warnings": [
