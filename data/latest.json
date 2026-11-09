@@ -1,30 +1,30 @@
 {
- "generated_at": "2026-11-08 10:40",
- "anchor_date": "2026-11-06",
- "anchor": 0.21029,
- "usdjpy": 157.498,
- "usdtwd": 33.1093,
- "synth": 0.21022,
+ "generated_at": "2026-11-09 10:56",
+ "anchor_date": "2026-11-09",
+ "anchor": 0.2046,
+ "usdjpy": 158.307,
+ "usdtwd": 32.735,
+ "synth": 0.20678,
  "rate_src": "Yahoo Finance",
  "need": 84000000,
  "board": {
   "src": "中價 × 上次加價率推估（台銀未取得）",
   "ok": false,
   "quoted_at": null,
-  "spot_sell": 0.2133,
-  "cash_sell": 0.2141,
+  "spot_sell": 0.2098,
+  "cash_sell": 0.2106,
   "spot_buy": null,
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01465,
-  "markup_cash": 0.01845
+  "markup_spot": 0.0146,
+  "markup_cash": 0.01847
  },
  "pctile": {
-  "y1": 99.6,
-  "y3": 68.5,
-  "y5": 41.1,
-  "all": 20.2
+  "y1": 88.1,
+  "y3": 43.0,
+  "y5": 25.8,
+  "all": 12.7
  },
  "range": {
   "y1": [
@@ -47,36 +47,36 @@
  "low_date": "2026-07-01",
  "conf": {
   "1": {
-   "hw_pct": 1.689,
-   "lo": 0.20677,
-   "hi": 0.21387
+   "hw_pct": 1.874,
+   "lo": 0.2008,
+   "hi": 0.20847
   },
   "2": {
    "hw_pct": 1.75,
-   "lo": 0.20664,
-   "hi": 0.214
+   "lo": 0.20105,
+   "hi": 0.20821
   },
   "4": {
    "hw_pct": 2.143,
-   "lo": 0.20583,
-   "hi": 0.21484
+   "lo": 0.20026,
+   "hi": 0.20903
   }
  },
  "legs5": {
-  "total": 1.91,
-  "twd": 1.65,
-  "jpy": 0.19,
-  "resid": 0.06
+  "total": -1.13,
+  "twd": 0.39,
+  "jpy": -0.4,
+  "resid": -1.12
  },
  "legs20": {
-  "total": 4.03,
-  "twd": 3.64,
-  "jpy": 0.36,
-  "resid": 0.03
+  "total": 1.43,
+  "twd": 2.53,
+  "jpy": -0.07,
+  "resid": -1.04
  },
- "vol1y": 7.61,
- "week_std": 1.176,
- "week_ac1": -0.0522,
+ "vol1y": 7.99,
+ "week_std": 1.181,
+ "week_ac1": -0.0592,
  "rates": {
   "us2": 4.46,
   "us10": 4.84,
@@ -122,16 +122,12 @@
    "balance_bn": -556.5
   },
   "intervention": {
-   "last_event": "2026-May-6",
-   "last_amount_oku": 46759,
-   "events": 81
+   "last_event": "2026-Aug-3",
+   "last_amount_oku": 18714,
+   "events": 84
   }
  },
  "series": [
-  [
-   "2026-08-17",
-   0.20091
-  ],
   [
    "2026-08-18",
    0.19988
@@ -367,6 +363,10 @@
   [
    "2026-11-06",
    0.21029
+  ],
+  [
+   "2026-11-09",
+   0.2046
   ]
  ],
  "warnings": [
