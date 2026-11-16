@@ -1,30 +1,30 @@
 {
- "generated_at": "2026-11-16 11:03",
+ "generated_at": "2026-11-17 03:46",
  "anchor_date": "2026-11-16",
- "anchor": 0.2042,
- "usdjpy": 159.69,
- "usdtwd": 32.958,
- "synth": 0.20639,
+ "anchor": 0.2045,
+ "usdjpy": 159.374,
+ "usdtwd": 32.938,
+ "synth": 0.20667,
  "rate_src": "Yahoo Finance",
  "need": 84000000,
  "board": {
   "src": "中價 × 上次加價率推估（台銀未取得）",
   "ok": false,
   "quoted_at": null,
-  "spot_sell": 0.2095,
-  "cash_sell": 0.2103,
+  "spot_sell": 0.2098,
+  "cash_sell": 0.2106,
   "spot_buy": null,
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01508,
-  "markup_cash": 0.01896
+  "markup_spot": 0.01514,
+  "markup_cash": 0.01901
  },
  "pctile": {
-  "y1": 84.9,
-  "y3": 42.2,
-  "y5": 25.3,
-  "all": 12.4
+  "y1": 85.7,
+  "y3": 42.6,
+  "y5": 25.6,
+  "all": 12.5
  },
  "range": {
   "y1": [
@@ -48,35 +48,35 @@
  "conf": {
   "1": {
    "hw_pct": 1.874,
-   "lo": 0.20041,
-   "hi": 0.20806
+   "lo": 0.2007,
+   "hi": 0.20837
   },
   "2": {
    "hw_pct": 2.124,
-   "lo": 0.19991,
-   "hi": 0.20858
+   "lo": 0.2002,
+   "hi": 0.20889
   },
   "4": {
    "hw_pct": 2.143,
-   "lo": 0.19987,
-   "hi": 0.20862
+   "lo": 0.20016,
+   "hi": 0.20893
   }
  },
  "legs5": {
-  "total": -1.24,
-  "twd": 0.6,
-  "jpy": -0.88,
-  "resid": -0.96
+  "total": -1.09,
+  "twd": 0.54,
+  "jpy": -0.68,
+  "resid": -0.95
  },
  "legs20": {
-  "total": -0.5,
-  "twd": 1.75,
-  "jpy": -1.19,
-  "resid": -1.06
+  "total": -0.35,
+  "twd": 1.69,
+  "jpy": -0.99,
+  "resid": -1.05
  },
- "vol1y": 7.74,
+ "vol1y": 7.72,
  "week_std": 1.177,
- "week_ac1": -0.0549,
+ "week_ac1": -0.0553,
  "rates": {
   "us2": 4.86,
   "us10": 5.1,
@@ -366,7 +366,7 @@
   ],
   [
    "2026-11-16",
-   0.2042
+   0.2045
   ]
  ],
  "warnings": [
