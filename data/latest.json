@@ -1,24 +1,24 @@
 {
- "generated_at": "2026-11-19 12:29",
+ "generated_at": "2026-11-20 02:30",
  "anchor_date": "2026-11-19",
  "anchor": 0.2043,
- "usdjpy": 159.567,
- "usdtwd": 32.946,
- "synth": 0.20647,
+ "usdjpy": 159.81,
+ "usdtwd": 33.018,
+ "synth": 0.20661,
  "rate_src": "Yahoo Finance",
  "need": 84000000,
  "board": {
   "src": "中價 × 上次加價率推估（台銀未取得）",
   "ok": false,
   "quoted_at": null,
-  "spot_sell": 0.2097,
-  "cash_sell": 0.2105,
+  "spot_sell": 0.2098,
+  "cash_sell": 0.2106,
   "spot_buy": null,
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01564,
-  "markup_cash": 0.01951
+  "markup_spot": 0.01545,
+  "markup_cash": 0.01932
  },
  "pctile": {
   "y1": 84.1,
@@ -64,15 +64,15 @@
  },
  "legs5": {
   "total": -0.75,
-  "twd": 0.26,
-  "jpy": 0.1,
-  "resid": -1.11
+  "twd": 0.47,
+  "jpy": -0.05,
+  "resid": -1.17
  },
  "legs20": {
   "total": -0.18,
-  "twd": 1.78,
-  "jpy": -0.9,
-  "resid": -1.06
+  "twd": 1.99,
+  "jpy": -1.06,
+  "resid": -1.12
  },
  "vol1y": 7.72,
  "week_std": 1.177,
