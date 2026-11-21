@@ -1,30 +1,30 @@
 {
- "generated_at": "2026-11-21 01:56",
+ "generated_at": "2026-11-21 12:15",
  "anchor_date": "2026-11-20",
- "anchor": 0.2054,
- "usdjpy": 158.746,
- "usdtwd": 32.949,
- "synth": 0.20756,
+ "anchor": 0.20674,
+ "usdjpy": 159.707,
+ "usdtwd": 33.0263,
+ "synth": 0.20679,
  "rate_src": "Yahoo Finance",
  "need": 84000000,
  "board": {
   "src": "中價 × 上次加價率推估（台銀未取得）",
   "ok": false,
   "quoted_at": null,
-  "spot_sell": 0.2108,
-  "cash_sell": 0.2116,
+  "spot_sell": 0.21,
+  "cash_sell": 0.2108,
   "spot_buy": null,
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01562,
-  "markup_cash": 0.01947
+  "markup_spot": 0.01551,
+  "markup_cash": 0.01938
  },
  "pctile": {
-  "y1": 90.5,
-  "y3": 47.4,
-  "y5": 28.4,
-  "all": 13.9
+  "y1": 96.4,
+  "y3": 53.2,
+  "y5": 31.9,
+  "all": 15.6
  },
  "range": {
   "y1": [
@@ -48,39 +48,39 @@
  "conf": {
   "1": {
    "hw_pct": 1.874,
-   "lo": 0.20159,
-   "hi": 0.20929
+   "lo": 0.2029,
+   "hi": 0.21065
   },
   "2": {
-   "hw_pct": 2.124,
-   "lo": 0.20108,
-   "hi": 0.20981
+   "hw_pct": 1.77,
+   "lo": 0.20311,
+   "hi": 0.21043
   },
   "4": {
    "hw_pct": 2.143,
-   "lo": 0.20104,
-   "hi": 0.20985
+   "lo": 0.20235,
+   "hi": 0.21122
   }
  },
  "legs5": {
-  "total": -0.3,
-  "twd": 0.03,
-  "jpy": 0.71,
-  "resid": -1.04
+  "total": 0.35,
+  "twd": 0.26,
+  "jpy": 0.11,
+  "resid": -0.02
  },
  "legs20": {
-  "total": -1.4,
-  "twd": 1.07,
-  "jpy": -1.43,
-  "resid": -1.05
+  "total": -0.75,
+  "twd": 1.31,
+  "jpy": -2.03,
+  "resid": -0.03
  },
- "vol1y": 7.68,
+ "vol1y": 7.65,
  "week_std": 1.177,
- "week_ac1": -0.0565,
+ "week_ac1": -0.0584,
  "rates": {
-  "us2": 4.8,
-  "us10": 5.07,
-  "us_date": "2026-11-18",
+  "us2": 4.76,
+  "us10": 5.04,
+  "us_date": "2026-11-19",
   "jgb2": 1.875,
   "jgb10": 2.817,
   "jgb_date": "2026-10-30",
@@ -95,14 +95,14 @@
   }
  },
  "cftc": {
-  "date": "2026-11-10",
-  "long": 249759,
-  "short": 126646,
-  "net": -123113,
-  "oi": 388875,
-  "z": -1.1,
-  "chg2w": -21522,
-  "notional_tn_jpy": -1.539
+  "date": "2026-11-17",
+  "long": 258756,
+  "short": 142439,
+  "net": -116317,
+  "oi": 390361,
+  "z": -1.0,
+  "chg2w": -13996,
+  "notional_tn_jpy": -1.454
  },
  "jp": {
   "flow": {
@@ -366,7 +366,7 @@
   ],
   [
    "2026-11-20",
-   0.2054
+   0.20674
   ]
  ],
  "warnings": [
