@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-11-27 03:13",
- "anchor_date": "2026-11-26",
+ "generated_at": "2026-11-27 13:19",
+ "anchor_date": "2026-11-27",
  "anchor": 0.2046,
- "usdjpy": 159.271,
+ "usdjpy": 159.278,
  "usdtwd": 32.941,
- "synth": 0.20682,
+ "synth": 0.20681,
  "rate_src": "Yahoo Finance",
  "need": 84000000,
  "board": {
@@ -17,11 +17,11 @@
   "cash_buy": null,
   "usd_spot_sell": null,
   "usd_spot_buy": null,
-  "markup_spot": 0.01536,
-  "markup_cash": 0.01923
+  "markup_spot": 0.0154,
+  "markup_cash": 0.01927
  },
  "pctile": {
-  "y1": 82.9,
+  "y1": 82.5,
   "y3": 43.0,
   "y5": 25.8,
   "all": 12.6
@@ -63,18 +63,18 @@
   }
  },
  "legs5": {
-  "total": -0.98,
-  "twd": 0.03,
-  "jpy": 0.07,
-  "resid": -1.08
+  "total": -1.04,
+  "twd": -0.26,
+  "jpy": 0.27,
+  "resid": -1.05
  },
  "legs20": {
-  "total": -0.33,
-  "twd": 1.71,
-  "jpy": -0.91,
-  "resid": -1.13
+  "total": -0.84,
+  "twd": 1.14,
+  "jpy": -0.93,
+  "resid": -1.05
  },
- "vol1y": 7.74,
+ "vol1y": 7.94,
  "week_std": 1.176,
  "week_ac1": -0.0589,
  "rates": {
@@ -106,20 +106,20 @@
  },
  "jp": {
   "flow": {
-   "period": "2026．11．8～11．14",
-   "outward_total": 1132,
-   "inward_total": 5878,
-   "outward_bond": -4407,
-   "inward_bond": 6501,
-   "weeks": 1141
+   "period": "2026．11．15～11．21",
+   "outward_total": 884,
+   "inward_total": -21495,
+   "outward_bond": 4235,
+   "inward_bond": 2085,
+   "weeks": 1142
   },
   "cpi": {
    "ym": "2026-10",
    "yoy": 2.3
   },
   "trade": {
-   "ym": "2026/09",
-   "balance_bn": -556.5
+   "ym": "2026/10",
+   "balance_bn": -480.7
   },
   "intervention": {
    "last_event": "2026-Aug-3",
@@ -128,10 +128,6 @@
   }
  },
  "series": [
-  [
-   "2026-09-04",
-   0.20361
-  ],
   [
    "2026-09-07",
    0.20251
@@ -366,6 +362,10 @@
   ],
   [
    "2026-11-26",
+   0.2085
+  ],
+  [
+   "2026-11-27",
    0.2046
   ]
  ],
